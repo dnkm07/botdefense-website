@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internships | BOTDEFENSE Futuristic</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</a></div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="web-applications.html">Web Apps</a></li>
+        <li><a href="websites.html">Websites</a></li>
+        <li><a href="internships.html" class="active">Internships</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="page-hero internships-hero">
+      <div class="page-hero-content">
+        <h1>Internships</h1>
+        <p>
+          Grow your skills through immersive AI and web development programs.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <h2>AI Internship Track</h2>
+        <p>
+          Dive into machine learning, NLP and computer vision projects with the
+          guidance of our experienced mentors. Get hands‑on experience building
+          and deploying AI models.
+        </p>
+        <h2>AI in Daily Life</h2>
+        <p>
+          Learn how AI can streamline tasks such as scheduling, analytics and
+          automation. Our program teaches you to integrate AI into everyday
+          workflows ethically and responsibly.
+        </p>
+
+        <!-- New highlighted section emphasizing the scale of our internship program -->
+        <h2>Global Internship Opportunities</h2>
+        <p class="internship-highlight">
+          <span class="highlight-number">200+</span> internships offered every year, both
+          within India and around the globe. Our expansive program ensures that
+          participants gain hands‑on experience with real projects while
+          collaborating across cultures and disciplines.
+        </p>
+
+        <!-- Programme structure explaining full‑time and part‑time tracks -->
+        <h2>Programme Structure</h2>
+        <p>
+          Our internships run for three months and are designed to accelerate your skills. We offer two tracks to
+          accommodate different lifestyles:
+        </p>
+        <h3>Full‑Time Interns (Weekday Onsite)</h3>
+        <p>
+          Full‑time interns are immersed in our Vijayawada office Monday through Friday. They work alongside our core
+          engineering and design teams on live projects, attend daily stand‑ups, and participate in workshops covering
+          Python, data science, machine learning, web development, user experience and AI ethics. This intensive track
+          is ideal for students who can commit fully and want to experience the rhythm of a professional studio.
+        </p>
+        <h3>Part‑Time Interns (Weekend Online)</h3>
+        <p>
+          For working professionals and students balancing other responsibilities, we offer a part‑time programme
+          conducted online on weekends. Live sessions focus on conceptual foundations and project work, while asynchronous
+          assignments allow you to practice during the week. You’ll build a portfolio piece by the end of the course, guided
+          by mentors who understand the challenges of juggling work and study.
+        </p>
+        <p>
+          Regardless of the track, participants develop technical expertise, soft skills and an entrepreneurial mindset
+          within a supportive community. By the end of three months, you will have built and deployed projects using AI,
+          web development frameworks and collaborative tools, preparing you for the next step in your career.
+        </p>
+        <p class="cta-text">
+          Ready to embark on a transformative learning journey?
+        </p>
+        <a href="mailto:hr@bdits.in" class="btn secondary-btn">Apply Now</a>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</h4>
+          <p>
+            Innovating at the intersection of technology and creativity.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="web-applications.html">Web Apps</a></li>
+            <li><a href="websites.html">Websites</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>
+            1st Floor, Muthoot Finance Building, 59/14/3/&nbsp;3/1, Service Road,
+            1st Ln, beside VSN Imperial Mall, Krishna Nagar, Vijayawada, Andhra&nbsp;Pradesh&nbsp;520008
+          </p>
+          <p><a href="mailto:info@bdits.in">info@bdits.in</a> &nbsp;|&nbsp; <a href="mailto:hr@bdits.in">hr@bdits.in</a></p>
+          <p>+91&nbsp;85229&nbsp;43544</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED. All
+        rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.page-section h2', {
+        opacity: 0,
+        x: -50,
+        stagger: 0.3,
+        duration: 1.2,
+        scrollTrigger: {
+          trigger: '.page-section',
+          start: 'top 80%',
+        },
+      });
+    </script>
+  </body>
+</html>

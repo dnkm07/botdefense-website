@@ -1,0 +1,603 @@
+/*
+  Custom stylesheet for the BOTDEFENSE futuristic website.
+  This file defines a modern, responsive layout with interactive
+  components inspired by high‑end studio sites. It uses CSS variables
+  for easy theming and supports mobile navigation via a hamburger menu.
+*/
+
+/* Global variables */
+:root {
+  --primary-color: #00aaff;
+  --secondary-color: #0088cc;
+  --dark-bg: #0a0a0a;
+  --light-bg: #f5f5f5;
+  --text-light: #f0f0f0;
+  --text-muted: #888;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--dark-bg);
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+}
+
+.logo a {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-light);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-menu li a {
+  color: var(--text-light);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-menu li a.active,
+.nav-menu li a:hover {
+  color: var(--primary-color);
+}
+
+/* Hamburger menu (mobile) */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 24px;
+  position: relative;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: var(--text-light);
+  height: 3px;
+  width: 100%;
+  border-radius: 2px;
+  position: absolute;
+  transition: transform 0.3s ease;
+}
+
+.nav-toggle-label span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-toggle-label span::before {
+  content: '';
+  top: -8px;
+}
+
+.nav-toggle-label span::after {
+  content: '';
+  bottom: -8px;
+}
+
+/* Page sections */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #001f3f, #1a0075);
+}
+
+#bgCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.4;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.primary-btn {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background: var(--secondary-color);
+}
+
+.secondary-btn {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* Showcase horizontal scroller */
+.showcase {
+  padding: 4rem 1rem;
+  background: #0f0f1f;
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+.scroller {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroller::-webkit-scrollbar {
+  height: 0;
+}
+
+.card {
+  flex: 0 0 300px;
+  background: #112255;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-body h3 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: #cdd6f3;
+  margin-bottom: 0.5rem;
+}
+
+.card-link {
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: var(--secondary-color);
+}
+
+/* Philosophy Section */
+.philosophy {
+  background: #1d1d2c;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.philosophy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #ccc;
+}
+
+.philosophy-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Page Hero sections */
+.page-hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-light);
+  padding: 0 1rem;
+}
+
+.page-hero.web-apps-hero {
+  background: radial-gradient(circle at top left, #002b5b, #001130);
+}
+
+.page-hero.websites-hero {
+  background: radial-gradient(circle at top right, #4d2600, #1a0a00);
+}
+
+.page-hero.internships-hero {
+  background: radial-gradient(circle at bottom left, #330e47, #11071e);
+}
+
+.page-hero.contact-hero {
+  background: radial-gradient(circle at top right, #004d40, #001c1a);
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.page-hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Page Section generic */
+.page-section {
+  padding: 4rem 1rem;
+  background: #121222;
+  color: #ddd;
+}
+
+.page-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.info-card {
+  flex: 1 1 250px;
+  background: #1d2951;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+}
+
+.info-card h3 {
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+}
+
+.info-card p {
+  color: #c5d1f7;
+  font-size: 0.95rem;
+}
+
+.cta-text {
+  margin: 2rem 0;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #ccc;
+}
+
+/* Founder Section */
+.founder-section {
+  background: #10102a;
+  padding: 4rem 1rem;
+  color: #ddd;
+}
+
+.founder-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.founder-image-wrapper {
+  flex: 0 0 300px;
+}
+
+.founder-image {
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.founder-content h2 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.founder-content h4 {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #aaa;
+}
+
+.founder-content p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #c8d4f8;
+}
+
+/* Contact page form */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.contact-info,
+.contact-form-wrapper {
+  flex: 1;
+  min-width: 250px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #1f2d4d;
+  color: #fff;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary-color);
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: var(--secondary-color);
+}
+
+.form-note {
+  font-size: 0.9rem;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+/* Footer */
+.site-footer {
+  background: #080818;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.footer-col h4 {
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover {
+  color: var(--text-light);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #111;
+  padding-top: 1rem;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    background: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-toggle-label {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 24px;
+    z-index: 1001;
+  }
+
+  /* When toggle is checked, slide in menu */
+  .nav-toggle:checked + .nav-toggle-label + .nav-menu {
+    transform: translateX(0);
+  }
+  /* Animate hamburger to X */
+  .nav-toggle:checked + .nav-toggle-label span {
+    transform: rotate(45deg);
+  }
+  .nav-toggle:checked + .nav-toggle-label span::before {
+    transform: translateY(8px) rotate(90deg);
+  }
+  .nav-toggle:checked + .nav-toggle-label span::after {
+    transform: translateY(-8px) rotate(90deg);
+  }
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    content: '';
+    display: block;
+    background: var(--text-light);
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    transition: transform 0.3s ease;
+  }
+}
+
+/*
+ * Internship highlight styles
+ *
+ * These rules emphasize the scale of our internship program and the
+ * number of opportunities available each year. The numeric value is
+ * styled prominently to draw the viewer’s eye and reinforce the
+ * company’s commitment to education and outreach.
+ */
+.internship-highlight {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+.highlight-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+.founder-profile {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 600px;
+}
+
+.founder-profile img {
+  width: 600px;
+  height: 600px;
+  border-radius: 20%;
+  object-fit: cover;
+  border: 5px solid #007bff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+}
+
+.founder-profile h3 {
+  font-size: 1.9rem;
+  margin-bottom: 5px;
+  color: #111;
+}
+
+.founder-profile p {
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.6;
+}

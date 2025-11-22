@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Web Applications | BOTDEFENSE Futuristic</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</a></div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="web-applications.html" class="active">Web Apps</a></li>
+        <li><a href="websites.html">Websites</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="page-hero web-apps-hero">
+      <div class="page-hero-content">
+        <h1>Custom Web Applications</h1>
+        <p>
+          Building tailored solutions that scale with your ambition. From
+          prototypes to enterprise‑grade platforms.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <h2>Why Choose Our Web Apps?</h2>
+        <div class="cards-grid">
+          <div class="info-card">
+            <h3>Full‑Stack Expertise</h3>
+            <p>
+              We combine robust back‑ends with elegant front‑ends to deliver
+              seamless experiences.
+            </p>
+          </div>
+          <div class="info-card">
+            <h3>Security Focused</h3>
+            <p>
+              Industry‑leading practices to keep your data and users safe at all
+              times.
+            </p>
+          </div>
+          <div class="info-card">
+            <h3>Modular Architecture</h3>
+            <p>
+              Designed for growth, our apps are built to adapt as your needs
+              evolve.
+            </p>
+          </div>
+        </div>
+        <p class="cta-text">
+          Ready to transform your processes? Reach out to start your project.
+        </p>
+        <a href="contact.html" class="btn secondary-btn">Start Project</a>
+
+        <!-- Our approach section emphasising human‑centred design and agile delivery -->
+        <h2>Our Approach</h2>
+        <p>
+          Every application we build begins with a conversation. We take time to understand your vision,
+          your users and the unique challenges of your industry. Rather than forcing you into a one‑size‑fits‑all
+          framework, we co‑create a solution that reflects your brand and supports your long‑term goals. We employ
+          iterative development practices and microservice architectures to ensure each component of your system can scale
+          independently. Throughout the process we provide transparent updates and involve you in key decisions,
+          because the best products are shaped by the people who will use them.
+        </p>
+        <h2>Innovation &amp; Future‑Ready Solutions</h2>
+        <p>
+          We don’t stop at today’s technology stack. Our team continually experiments with emerging tools such as serverless
+          functions, GraphQL, real‑time streaming and AI‑powered personalisation to make sure your platform stands the test
+          of time. Imagine a dashboard that adapts to your behaviour, predictive analytics that help you plan inventory or
+          3D visualisations that make complex data instantly understandable. By investing in research and prototyping,
+          we are ready to implement the innovations that will define the next decade of the web. With BOTDEFENSE as your partner,
+          your application will be a platform for growth rather than an obstacle to overcome.
+        </p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</h4>
+          <p>
+            Innovating at the intersection of technology and creativity.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="web-applications.html">Web Apps</a></li>
+            <li><a href="websites.html">Websites</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>
+            1st Floor, Muthoot Finance Building, 59/14/3/&nbsp;3/1, Service Road,
+            1st Ln, beside VSN Imperial Mall, Krishna Nagar, Vijayawada, Andhra&nbsp;Pradesh&nbsp;520008
+          </p>
+          <p><a href="mailto:info@bdits.in">info@bdits.in</a></p>
+          <p>+91&nbsp;85229&nbsp;43544</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED. All
+        rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.info-card', {
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        duration: 1.2,
+        scrollTrigger: {
+          trigger: '.cards-grid',
+          start: 'top 80%',
+        },
+      });
+    </script>
+  </body>
+</html>

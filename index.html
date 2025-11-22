@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BOTDEFENSE Futuristic</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Three.js and GSAP -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <!-- Full legal name in header -->
+      <div class="logo"><a href="index.html">BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</a></div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="web-applications.html">Web Apps</a></li>
+        <li><a href="websites.html">Websites</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section with 3D canvas -->
+    <section class="hero" id="hero">
+      <canvas id="bgCanvas"></canvas>
+      <div class="hero-content">
+        <h1 class="hero-title">Reimagining the Future</h1>
+        <p class="hero-subtitle">
+          Harnessing advanced technology to build transformative digital
+          experiences.
+        </p>
+        <a href="about.html" class="btn primary-btn">Explore</a>
+      </div>
+    </section>
+
+    <!-- Horizontal Showcase Section -->
+    <section class="showcase" id="showcase">
+      <h2 class="section-title">Our Innovations</h2>
+      <div class="scroller">
+        <div class="card">
+          <img
+            src="https://picsum.photos/id/1067/600/400"
+            alt="Custom Web Apps"
+          />
+          <div class="card-body">
+            <h3>Custom Web Apps</h3>
+            <p>Scalable, secure, and future‑proof solutions.</p>
+            <a href="web-applications.html" class="card-link">Discover</a>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://picsum.photos/id/1050/600/400"
+            alt="Professional Websites"
+          />
+          <div class="card-body">
+            <h3>Professional Websites</h3>
+            <p>Crafted to captivate and convert.</p>
+            <a href="websites.html" class="card-link">Learn More</a>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://picsum.photos/id/1040/600/400"
+            alt="AI Internships"
+          />
+          <div class="card-body">
+            <h3>AI Internships</h3>
+            <p>Immersive programs for tomorrow's innovators.</p>
+            <a href="internships.html" class="card-link">Join</a>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://picsum.photos/id/1035/600/400"
+            alt="AI Integration"
+          />
+          <div class="card-body">
+            <h3>AI Integration</h3>
+            <p>Empower your workflows with intelligent automation.</p>
+            <a href="internships.html" class="card-link">Explore</a>
+          </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://picsum.photos/id/1027/600/400"
+            alt="SOPNXT"
+          />
+          <div class="card-body">
+            <h3>SOPNXT</h3>
+            <p>Streamlining operations for next‑gen enterprises.</p>
+            <a href="contact.html" class="card-link">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy" id="philosophy">
+      <div class="philosophy-container">
+        <h2 class="section-title">Our Philosophy</h2>
+        <p>
+          We strive to build digital products that not only meet today’s needs but
+          anticipate tomorrow’s challenges. By blending design,
+          engineering, and storytelling, we create experiences that resonate and
+          inspire.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</h4>
+          <p>
+            Innovating at the intersection of technology and creativity.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="web-applications.html">Web Apps</a></li>
+            <li><a href="websites.html">Websites</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>
+            1st Floor, Muthoot Finance Building, 59/14/3/&nbsp;3/1, Service Road,
+            1st Ln, beside VSN Imperial Mall, Krishna Nagar, Vijayawada, Andhra&nbsp;Pradesh&nbsp;520008
+          </p>
+          <p><a href="mailto:info@bdits.in">info@bdits.in</a></p>
+          <p>+91&nbsp;85229&nbsp;43544</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED. All rights
+        reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="app.js" defer></script>
+    <script>
+      // Update year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

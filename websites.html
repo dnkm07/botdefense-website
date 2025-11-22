@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Websites | BOTDEFENSE Futuristic</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</a></div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="web-applications.html">Web Apps</a></li>
+        <li><a href="websites.html" class="active">Websites</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="page-hero websites-hero">
+      <div class="page-hero-content">
+        <h1>Professional Websites</h1>
+        <p>
+          Elevate your online presence with stunning, responsive and high‑performing
+          sites.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <h2>What We Deliver</h2>
+        <div class="cards-grid">
+          <div class="info-card">
+            <h3>UX‑First Design</h3>
+            <p>
+              Designs that captivate audiences and guide them effortlessly.
+            </p>
+          </div>
+          <div class="info-card">
+            <h3>Performance Optimized</h3>
+            <p>
+              Sites built to load fast and perform under pressure.
+            </p>
+          </div>
+          <div class="info-card">
+            <h3>SEO Smart</h3>
+            <p>
+              Structured content and semantic markup for search engine success.
+            </p>
+          </div>
+        </div>
+        <p class="cta-text">
+          Let’s craft a digital space that reflects your brand.
+        </p>
+        <a href="contact.html" class="btn secondary-btn">Let’s Talk</a>
+
+        <!-- Crafting digital experiences section elaborating on narrative and accessibility -->
+        <h2>Crafting Digital Experiences</h2>
+        <p>
+          A website is more than a collection of pages – it’s a narrative journey. We design each section to guide visitors
+          seamlessly from curiosity to action, using thoughtful typography, colour and composition to reflect your identity.
+          Accessibility is woven into every step, ensuring that your message reaches all audiences. Our layouts adapt gracefully
+          across screens, providing a consistent experience whether your customers are on a phone in Hyderabad or a
+          desktop in Boston. We favour semantic HTML and progressive enhancement so your site remains maintainable and
+          search‑friendly.
+        </p>
+        <h2>Future‑Proofing Your Presence</h2>
+        <p>
+          Technology and user expectations evolve quickly. We build modular components that can be updated independently,
+          integrate AI‑powered analytics to learn from user behaviour, and experiment with emerging mediums such as micro‑interactions,
+          3D interfaces and voice or AR experiences. Your website will serve as a living platform that grows with you,
+          leveraging data to personalise content and reveal insights while maintaining top‑notch performance. With BOTDEFENSE,
+          your online presence becomes a dynamic story that keeps pace with tomorrow.
+        </p>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</h4>
+          <p>
+            Innovating at the intersection of technology and creativity.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="web-applications.html">Web Apps</a></li>
+            <li><a href="websites.html">Websites</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>
+            1st Floor, Muthoot Finance Building, 59/14/3/&nbsp;3/1, Service Road,
+            1st Ln, beside VSN Imperial Mall, Krishna Nagar, Vijayawada, Andhra&nbsp;Pradesh&nbsp;520008
+          </p>
+          <p><a href="mailto:info@bdits.in">info@bdits.in</a></p>
+          <p>+91&nbsp;85229&nbsp;43544</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED. All
+        rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.info-card', {
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        duration: 1.2,
+        scrollTrigger: {
+          trigger: '.cards-grid',
+          start: 'top 80%',
+        },
+      });
+    </script>
+  </body>
+</html>
