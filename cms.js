@@ -11,21 +11,21 @@
   const fallbackEvents = [
     {
       title: 'AI for Business Workshop',
-      date: '2024-10-18',
+      date: '2026-10-18',
       location: 'Vijayawada',
       summary: 'Live session on AI adoption and automation roadmaps.',
       link: 'contact.html',
     },
     {
       title: 'Immersive Learning Demo',
-      date: '2024-11-02',
+      date: '2026-11-02',
       location: 'Hybrid',
       summary: 'Showcase of XR training labs and interactive simulations.',
       link: 'contact.html',
     },
     {
       title: 'Founder AMA',
-      date: '2024-11-20',
+      date: '2026-11-20',
       location: 'Online',
       summary: 'Q and A on product strategy, AI ethics, and careers.',
       link: 'contact.html',
