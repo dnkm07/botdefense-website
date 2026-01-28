@@ -123,4 +123,91 @@ window.addEventListener('load', () => {
       },
     });
   }
+
+  // Scroll reveal
+  document
+    .querySelectorAll('.card, .data-card, .testimonial-card')
+    .forEach((item) => item.classList.add('reveal'));
+
+  const revealItems = document.querySelectorAll('.reveal');
+  if (revealItems.length) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    revealItems.forEach((item) => revealObserver.observe(item));
+  }
+
+
+  // CTA spotlight
+  document.querySelectorAll('.cta-spotlight').forEach((spotlight) => {
+    spotlight.addEventListener('mousemove', (event) => {
+      const rect = spotlight.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      spotlight.style.setProperty('--spotlight-x', `${x}%`);
+      spotlight.style.setProperty('--spotlight-y', `${y}%`);
+    });
+    spotlight.addEventListener('mouseenter', () => spotlight.classList.add('is-active'));
+    spotlight.addEventListener('mouseleave', () => spotlight.classList.remove('is-active'));
+  });
+
+  // Mouse tilt on cards
+  const tiltTargets = document.querySelectorAll(
+    '.card, .info-card, .data-card, .testimonial-card'
+  );
+  tiltTargets.forEach((card) => {
+    card.classList.add('tilt-card');
+    card.addEventListener('mousemove', (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      const rotateX = ((y / rect.height) - 0.5) * -8;
+      const rotateY = ((x / rect.width) - 0.5) * 8;
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      card.classList.add('is-tilting');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      card.classList.remove('is-tilting');
+    });
+  });
+
+  // Testimonials carousel
+  const testimonialTrack = document.getElementById('testimonialTrack');
+  const testimonialDots = document.getElementById('testimonialDots');
+  if (testimonialTrack && testimonialDots) {
+    const cards = Array.from(testimonialTrack.querySelectorAll('.testimonial-card'));
+    let index = 0;
+    const renderDots = () => {
+      testimonialDots.innerHTML = '';
+      cards.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = 'testimonial-dot';
+        if (idx === index) dot.classList.add('is-active');
+        dot.addEventListener('click', () => setActive(idx));
+        testimonialDots.appendChild(dot);
+      });
+    };
+
+    const setActive = (nextIndex) => {
+      cards[index].classList.remove('is-active');
+      index = nextIndex;
+      cards[index].classList.add('is-active');
+      renderDots();
+    };
+
+    renderDots();
+    setInterval(() => {
+      const next = (index + 1) % cards.length;
+      setActive(next);
+    }, 5000);
+  }
 });
