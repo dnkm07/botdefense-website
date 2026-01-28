@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard | BOTDEFENSE Futuristic</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-page">
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</a></div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="web-applications.html">Web Apps</a></li>
+        <li><a href="websites.html">Websites</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="admin-hero">
+      <div class="admin-hero-content">
+        <p class="admin-eyebrow">Admin Control</p>
+        <h1>Manage internships and events</h1>
+        <p>Post new openings, update details, and keep the site fresh.</p>
+        <button class="btn secondary-btn" id="logoutBtn">Logout</button>
+      </div>
+    </section>
+
+    <section class="admin-section">
+      <div class="admin-grid">
+        <div class="admin-panel">
+          <h2>Internships</h2>
+          <form class="admin-form" id="internshipForm">
+            <input type="hidden" id="internshipId" />
+            <label for="internshipTitle">Title</label>
+            <input id="internshipTitle" type="text" required />
+
+            <label for="internshipMode">Mode</label>
+            <input id="internshipMode" type="text" placeholder="Hybrid / Remote / Onsite" />
+
+            <label for="internshipDuration">Duration</label>
+            <input id="internshipDuration" type="text" placeholder="3 Months" />
+
+            <label for="internshipSummary">Summary</label>
+            <textarea id="internshipSummary" rows="4"></textarea>
+
+            <label for="internshipApply">Apply Link</label>
+            <input id="internshipApply" type="text" placeholder="mailto:hr@bdits.in" />
+
+            <div class="admin-actions">
+              <button type="submit" class="btn primary-btn">Save Internship</button>
+              <button type="button" class="btn secondary-btn" id="internshipClear">Clear</button>
+            </div>
+            <p class="admin-message" id="internshipMessage" aria-live="polite"></p>
+          </form>
+          <div class="admin-list" id="internshipList"></div>
+        </div>
+
+        <div class="admin-panel">
+          <h2>Events</h2>
+          <form class="admin-form" id="eventForm">
+            <input type="hidden" id="eventId" />
+            <label for="eventTitle">Title</label>
+            <input id="eventTitle" type="text" required />
+
+            <label for="eventDate">Date</label>
+            <input id="eventDate" type="date" />
+
+            <label for="eventLocation">Location</label>
+            <input id="eventLocation" type="text" placeholder="Vijayawada / Online" />
+
+            <label for="eventSummary">Summary</label>
+            <textarea id="eventSummary" rows="4"></textarea>
+
+            <label for="eventLink">Link</label>
+            <input id="eventLink" type="text" placeholder="contact.html" />
+
+            <div class="admin-actions">
+              <button type="submit" class="btn primary-btn">Save Event</button>
+              <button type="button" class="btn secondary-btn" id="eventClear">Clear</button>
+            </div>
+            <p class="admin-message" id="eventMessage" aria-live="polite"></p>
+          </form>
+          <div class="admin-list" id="eventList"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED. All
+        rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const api = (path, options = {}) =>
+        fetch(path, { credentials: 'include', ...options });
+
+      const requireSession = async () => {
+        const response = await api('/api/auth/session');
+        const data = await response.json();
+        if (!data.authenticated) {
+          window.location.href = 'admin-login.html';
+        }
+      };
+
+      const logoutBtn = document.getElementById('logoutBtn');
+      logoutBtn.addEventListener('click', async () => {
+        await api('/api/auth/logout', { method: 'POST' });
+        window.location.href = 'admin-login.html';
+      });
+
+      const internshipList = document.getElementById('internshipList');
+      const eventList = document.getElementById('eventList');
+      const internshipMessage = document.getElementById('internshipMessage');
+      const eventMessage = document.getElementById('eventMessage');
+
+      const setMessage = (el, text) => {
+        el.textContent = text;
+        setTimeout(() => {
+          if (el.textContent === text) el.textContent = '';
+        }, 2500);
+      };
+
+      const loadInternships = async () => {
+        const response = await api('/api/internships');
+        const items = await response.json();
+        internshipList.innerHTML = items
+          .map(
+            (item) => `
+          <div class="admin-item">
+            <div>
+              <h4>${item.title}</h4>
+              <p>${item.mode || ''} • ${item.duration || ''}</p>
+            </div>
+            <div class="admin-item-actions">
+              <button data-id="${item.id}" class="admin-edit" data-type="internship">Edit</button>
+              <button data-id="${item.id}" class="admin-delete" data-type="internship">Delete</button>
+            </div>
+          </div>
+        `
+          )
+          .join('');
+      };
+
+      const loadEvents = async () => {
+        const response = await api('/api/events');
+        const items = await response.json();
+        eventList.innerHTML = items
+          .map(
+            (item) => `
+          <div class="admin-item">
+            <div>
+              <h4>${item.title}</h4>
+              <p>${item.date || ''} • ${item.location || ''}</p>
+            </div>
+            <div class="admin-item-actions">
+              <button data-id="${item.id}" class="admin-edit" data-type="event">Edit</button>
+              <button data-id="${item.id}" class="admin-delete" data-type="event">Delete</button>
+            </div>
+          </div>
+        `
+          )
+          .join('');
+      };
+
+      const internshipForm = document.getElementById('internshipForm');
+      const eventForm = document.getElementById('eventForm');
+
+      internshipForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const id = document.getElementById('internshipId').value;
+        const payload = {
+          title: document.getElementById('internshipTitle').value,
+          mode: document.getElementById('internshipMode').value,
+          duration: document.getElementById('internshipDuration').value,
+          summary: document.getElementById('internshipSummary').value,
+          applyLink: document.getElementById('internshipApply').value,
+        };
+        const response = await api(`/api/internships${id ? `/${id}` : ''}`, {
+          method: id ? 'PUT' : 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (response.ok) {
+          setMessage(internshipMessage, 'Saved.');
+          internshipForm.reset();
+          document.getElementById('internshipId').value = '';
+          await loadInternships();
+        } else {
+          setMessage(internshipMessage, 'Failed to save.');
+        }
+      });
+
+      eventForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const id = document.getElementById('eventId').value;
+        const payload = {
+          title: document.getElementById('eventTitle').value,
+          date: document.getElementById('eventDate').value,
+          location: document.getElementById('eventLocation').value,
+          summary: document.getElementById('eventSummary').value,
+          link: document.getElementById('eventLink').value,
+        };
+        const response = await api(`/api/events${id ? `/${id}` : ''}`, {
+          method: id ? 'PUT' : 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (response.ok) {
+          setMessage(eventMessage, 'Saved.');
+          eventForm.reset();
+          document.getElementById('eventId').value = '';
+          await loadEvents();
+        } else {
+          setMessage(eventMessage, 'Failed to save.');
+        }
+      });
+
+      document.getElementById('internshipClear').addEventListener('click', () => {
+        internshipForm.reset();
+        document.getElementById('internshipId').value = '';
+      });
+
+      document.getElementById('eventClear').addEventListener('click', () => {
+        eventForm.reset();
+        document.getElementById('eventId').value = '';
+      });
+
+      document.addEventListener('click', async (event) => {
+        const button = event.target.closest('button');
+        if (!button) return;
+        const id = button.dataset.id;
+        const type = button.dataset.type;
+
+        if (button.classList.contains('admin-delete')) {
+          await api(`/api/${type === 'event' ? 'events' : 'internships'}/${id}`, {
+            method: 'DELETE',
+          });
+          if (type === 'event') await loadEvents();
+          if (type === 'internship') await loadInternships();
+        }
+
+        if (button.classList.contains('admin-edit')) {
+          const response = await api(`/api/${type === 'event' ? 'events' : 'internships'}`);
+          const items = await response.json();
+          const item = items.find((entry) => entry.id === id);
+          if (!item) return;
+          if (type === 'event') {
+            document.getElementById('eventId').value = item.id;
+            document.getElementById('eventTitle').value = item.title || '';
+            document.getElementById('eventDate').value = item.date || '';
+            document.getElementById('eventLocation').value = item.location || '';
+            document.getElementById('eventSummary').value = item.summary || '';
+            document.getElementById('eventLink').value = item.link || '';
+          } else {
+            document.getElementById('internshipId').value = item.id;
+            document.getElementById('internshipTitle').value = item.title || '';
+            document.getElementById('internshipMode').value = item.mode || '';
+            document.getElementById('internshipDuration').value = item.duration || '';
+            document.getElementById('internshipSummary').value = item.summary || '';
+            document.getElementById('internshipApply').value = item.applyLink || '';
+          }
+        }
+      });
+
+      requireSession().then(() => {
+        loadInternships();
+        loadEvents();
+      });
+    </script>
+  </body>
+</html>
