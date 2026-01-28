@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Login | BOTDEFENSE Futuristic</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="login-page">
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</a></div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="web-applications.html">Web Apps</a></li>
+        <li><a href="websites.html">Websites</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="auth-hero">
+      <div class="auth-hero-content">
+        <p class="auth-eyebrow">Admin Portal</p>
+        <h1>Sign in to manage content</h1>
+        <p>
+          Securely access internship listings, content updates, and team tools from one place.
+        </p>
+      </div>
+    </section>
+
+    <section class="auth-section">
+      <div class="auth-card">
+        <h2>Administrator Login</h2>
+        <p class="auth-note">Use your admin email and password to continue.</p>
+        <form class="auth-form" id="adminLoginForm" autocomplete="off">
+          <label for="admin-username">Admin ID</label>
+          <input type="text" id="admin-username" name="username" placeholder="admin1218" required />
+
+          <label for="admin-password">Password</label>
+          <input type="password" id="admin-password" name="password" placeholder="Enter password" required />
+
+          <button type="submit" class="btn primary-btn">Login</button>
+          <p class="auth-message" id="authMessage" aria-live="polite"></p>
+          <a class="auth-link" href="mailto:info@bdits.in">Need access? Contact support</a>
+        </form>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</h4>
+          <p>
+            Innovating at the intersection of technology and creativity.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="web-applications.html">Web Apps</a></li>
+            <li><a href="websites.html">Websites</a></li>
+            <li><a href="internships.html">Internships</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>
+            1st Floor, Muthoot Finance Building, 59/14/3/&nbsp;3/1, Service Road,
+            1st Ln, beside VSN Imperial Mall, Krishna Nagar, Vijayawada, Andhra&nbsp;Pradesh&nbsp;520008
+          </p>
+          <p><a href="mailto:info@bdits.in">info@bdits.in</a> &nbsp;|&nbsp; <a href="mailto:hr@bdits.in">hr@bdits.in</a></p>
+          <p>+91&nbsp;85229&nbsp;43544</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; <span id="year"></span> BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED. All
+        rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <script>
+      const loginForm = document.getElementById('adminLoginForm');
+      const message = document.getElementById('authMessage');
+
+      loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const username = document.getElementById('admin-username').value.trim();
+        const password = document.getElementById('admin-password').value;
+
+        try {
+          const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ username, password }),
+          });
+
+          if (!response.ok) {
+            throw new Error('Invalid credentials');
+          }
+
+          message.textContent = 'Login successful. Redirecting...';
+          message.classList.remove('auth-error');
+          message.classList.add('auth-success');
+          setTimeout(() => {
+            window.location.href = 'admin-dashboard.html';
+          }, 500);
+        } catch (error) {
+          message.textContent = 'Invalid admin ID or password.';
+          message.classList.remove('auth-success');
+          message.classList.add('auth-error');
+        }
+      });
+    </script>
+  </body>
+</html>
