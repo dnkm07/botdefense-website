@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Internships | BOTDEFENSE Futuristic</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -18,7 +18,7 @@
       defer
     ></script>
   </head>
-  <body>
+  <body class="internships-page">
     <nav class="navbar">
       <div class="logo"><a href="index.html">BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</a></div>
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -98,6 +98,19 @@
       </div>
     </section>
 
+    <section class="page-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Latest Internship Openings</h2>
+          <p>
+            These roles are managed by the admin team and updated without
+            touching the code.
+          </p>
+        </div>
+        <div class="data-grid" id="internshipsGrid"></div>
+      </div>
+    </section>
+
     <footer class="site-footer">
       <div class="footer-content">
         <div class="footer-col">
@@ -108,13 +121,17 @@
         </div>
         <div class="footer-col">
           <h4>Links</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="web-applications.html">Web Apps</a></li>
-            <li><a href="websites.html">Websites</a></li>
-            <li><a href="internships.html">Internships</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+          <div class="footer-links">
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="web-applications.html">Web Apps</a></li>
+              <li><a href="websites.html">Websites</a></li>
+            </ul>
+            <ul>
+              <li><a href="internships.html">Internships</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
@@ -146,5 +163,6 @@
         },
       });
     </script>
+    <script src="cms.js" defer></script>
   </body>
 </html>
