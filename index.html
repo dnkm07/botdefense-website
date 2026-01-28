@@ -6,7 +6,7 @@
     <title>BOTDEFENSE Futuristic</title>
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <!-- Styles -->
@@ -57,7 +57,10 @@
           Harnessing advanced technology to build transformative digital
           experiences.
         </p>
-        <a href="about.html" class="btn primary-btn">Explore</a>
+        <div class="cta-spotlight">
+          <span class="cta-spotlight-core" aria-hidden="true"></span>
+          <a href="about.html" class="btn primary-btn">Explore</a>
+        </div>
       </div>
     </section>
 
@@ -67,7 +70,7 @@
       <div class="scroller">
         <div class="card">
           <img
-            src="https://picsum.photos/id/1067/600/400"
+            src="https://images.unsplash.com/photo-1755436612165-56c6bfa5218b?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
             alt="Custom Web Apps"
           />
           <div class="card-body">
@@ -78,7 +81,7 @@
         </div>
         <div class="card">
           <img
-            src="https://picsum.photos/id/1050/600/400"
+            src="https://images.unsplash.com/photo-1718220216044-006f43e3a9b1?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
             alt="Professional Websites"
           />
           <div class="card-body">
@@ -89,7 +92,7 @@
         </div>
         <div class="card">
           <img
-            src="https://picsum.photos/id/1040/600/400"
+            src="https://images.pexels.com/photos/5940828/pexels-photo-5940828.jpeg?cs=srgb&dl=pexels-kampus-5940828.jpg&fm=jpg"
             alt="AI Internships"
           />
           <div class="card-body">
@@ -100,7 +103,7 @@
         </div>
         <div class="card">
           <img
-            src="https://picsum.photos/id/1035/600/400"
+            src="https://images.unsplash.com/photo-1768224656445-33d078c250b7?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
             alt="AI Integration"
           />
           <div class="card-body">
@@ -136,6 +139,85 @@
       </div>
     </section>
 
+    <section class="skills-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills Cloud</h2>
+          <p>Key capabilities that power our work across AI, web, and product.</p>
+          <div class="section-chips">
+            <span>Strategy</span>
+            <span>UX</span>
+            <span>Automation</span>
+            <span>Cloud</span>
+          </div>
+        </div>
+        <div class="skills-cloud">
+          <span>AI Strategy</span>
+          <span>Computer Vision</span>
+          <span>Product Design</span>
+          <span>LLM Workflows</span>
+          <span>Cloud Engineering</span>
+          <span>Data Analytics</span>
+          <span>UX Research</span>
+          <span>Automation</span>
+          <span>DevOps</span>
+          <span>Web Platforms</span>
+          <span>Security</span>
+          <span>Growth Experiments</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Upcoming Events</h2>
+          <p>
+            Public workshops, immersive demos, and live product showcases.
+            Updated by the admin team in real time.
+          </p>
+        </div>
+        <div class="data-grid" id="eventsGrid"></div>
+        <div class="section-cta">
+          <div class="cta-spotlight">
+            <span class="cta-spotlight-core" aria-hidden="true"></span>
+            <a href="contact.html" class="btn secondary-btn">Host an Event</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Trusted by Visionary Teams</h2>
+          <p>Short stories from partners building the next wave of digital products.</p>
+        </div>
+        <div class="testimonial-track" id="testimonialTrack">
+          <article class="testimonial-card is-active">
+            <p>
+              "The BOTDEFENSE team shipped a full platform in weeks, not months. Their
+              momentum is contagious."
+            </p>
+            <h4>Product Lead, Fintech Lab</h4>
+          </article>
+          <article class="testimonial-card">
+            <p>
+              "We saw immediate lift in user engagement after the AI workflows went live."
+            </p>
+            <h4>Head of Growth, HealthTech Studio</h4>
+          </article>
+          <article class="testimonial-card">
+            <p>
+              "The experience felt boutique but the execution felt enterprise-grade."
+            </p>
+            <h4>Founder, Retail Innovation Hub</h4>
+          </article>
+        </div>
+        <div class="testimonial-dots" id="testimonialDots"></div>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-content">
@@ -147,13 +229,17 @@
         </div>
         <div class="footer-col">
           <h4>Links</h4>
-          <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="web-applications.html">Web Apps</a></li>
-            <li><a href="websites.html">Websites</a></li>
-            <li><a href="internships.html">Internships</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+          <div class="footer-links">
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="web-applications.html">Web Apps</a></li>
+              <li><a href="websites.html">Websites</a></li>
+            </ul>
+            <ul>
+              <li><a href="internships.html">Internships</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
@@ -173,6 +259,7 @@
 
     <!-- Scripts -->
     <script src="app.js" defer></script>
+    <script src="cms.js" defer></script>
     <script>
       // Update year in footer
       document.getElementById('year').textContent = new Date().getFullYear();
