@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#071018">
+<meta name="description" content="BOTDEFENSE builds intelligent software, AI automation, secure cloud systems, and digital products.">
+<title>{% block title %}BOTDEFENSE — Intelligence, engineered.{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body><div class="cursor-glow" aria-hidden="true"></div>
+<header class="site-header"><a class="brand" href="/" aria-label="BOTDEFENSE home"><img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="" width="42" height="42"><span class="brand-copy"><strong>BOTDEFENSE</strong><small>IT SOLUTIONS</small></span></a>
+<button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span></button>
+<nav id="site-nav"><a href="/" {% if request.path == '/' %}class="active"{% endif %}>Home</a><a href="/services" {% if request.path == '/services' %}class="active"{% endif %}>Capabilities</a><a href="/about" {% if request.path == '/about' %}class="active"{% endif %}>Company</a><a href="/internships" {% if request.path == '/internships' %}class="active"{% endif %}>Careers</a><a class="nav-cta" href="/contact">Start a project <span>↗</span></a></nav></header>
+<main>{% block content %}{% endblock %}</main>
+<footer class="site-footer"><div class="footer-top"><div><p class="eyebrow">BUILD WHAT'S NEXT</p><h2>Have a complex idea?<br><em>Good.</em></h2></div><a class="orb-link" href="/contact"><span>LET'S TALK</span><b>↗</b></a></div>
+<div class="footer-bottom"><a class="brand footer-brand" href="/"><img src="{{ url_for('static', filename='images/LOGO.png') }}" alt="" width="36" height="36"><span class="brand-copy"><strong>BOTDEFENSE</strong><small>IT SOLUTIONS</small></span></a><p>Vijayawada · Raipur · Working globally</p><p>© 2026 BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script><script src="{{ url_for('static', filename='js/app.js') }}" defer></script></body></html>
