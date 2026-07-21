@@ -1,268 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>BOTDEFENSE Futuristic</title>
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Three.js and GSAP -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"
-      defer
-    ></script>
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <!-- Full legal name in header -->
-      <div class="logo"><a href="index.html">BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</a></div>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="nav-toggle-label">
-        <span></span>
-      </label>
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="web-applications.html">Web Apps</a></li>
-        <li><a href="websites.html">Websites</a></li>
-        <li><a href="internships.html">Internships</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#071018">
+<meta name="description" content="BOTDEFENSE builds intelligent software, AI automation, secure cloud systems, and digital products.">
+<title>BOTDEFENSE — Intelligence, engineered.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css"></head>
+<body><div class="cursor-glow" aria-hidden="true"></div>
+<header class="site-header"><a class="brand" href="index.html" aria-label="BOTDEFENSE home"><img src="static/images/LOGO.png" alt="" width="42" height="42"><span class="brand-copy"><strong>BOTDEFENSE</strong><small>IT SOLUTIONS</small></span></a>
+<button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span></button>
+<nav id="site-nav"><a href="index.html" class="active">Home</a><a href="about.html">Company</a><a href="web-applications.html">Web Apps</a><a href="websites.html">Websites</a><a href="internships.html">Internships</a><a class="nav-cta" href="contact.html">Start a project <span>↗</span></a></nav></header>
+<main>
+<section class="hero"><div class="hero-grid" aria-hidden="true"></div><img class="orion-visual" src="static/images/orion-hero.png" alt="ORION, BOTDEFENSE's AI intelligence system">
+<div class="hero-copy reveal"><p class="eyebrow"><span class="status-dot"></span> INDEPENDENT TECHNOLOGY STUDIO · INDIA / GLOBAL</p><h1>Intelligence,<br><span>engineered.</span></h1><p class="hero-lede">We design and build AI-powered products, secure platforms, and digital systems that move ambitious businesses forward.</p><div class="hero-actions"><a class="button button-dark" href="contact.html">Build with us <span>↗</span></a><a class="text-link" href="#capabilities">Explore our work <span>↓</span></a></div></div>
+<div class="orion-tag glass-panel"><span class="signal"></span><div><small>AI SYSTEM / 01</small><strong>Meet ORION</strong></div><p>Digital intelligence. Human direction.</p></div><div class="scroll-cue"><span></span>SCROLL TO EXPLORE</div></section>
 
-    <!-- Hero Section with 3D canvas -->
-    <section class="hero" id="hero">
-      <canvas id="bgCanvas"></canvas>
-      <div class="hero-content">
-        <h1 class="hero-title">Reimagining the Future</h1>
-        <p class="hero-subtitle">
-          Harnessing advanced technology to build transformative digital
-          experiences.
-        </p>
-        <div class="cta-spotlight">
-          <span class="cta-spotlight-core" aria-hidden="true"></span>
-          <a href="about.html" class="btn primary-btn">Explore</a>
-        </div>
-      </div>
-    </section>
+<section class="ticker-section"><div class="ticker-pin"><div class="ticker-flow"><span>From ambitious ideas</span><svg viewBox="0 0 130 62"><path d="M4 49C35 5 82 4 126 40"/><circle cx="126" cy="40" r="7"/></svg><span>to intelligent products</span><i class="ticker-chip">AI</i><span>that connect people</span><svg viewBox="0 0 94 58"><circle cx="15" cy="29" r="11"/><circle cx="79" cy="15" r="8"/><circle cx="76" cy="47" r="7"/><path d="M26 26 70 17M25 34l44 11"/></svg><span>protect operations</span><i class="ticker-chip">SECURE</i><span>and create measurable momentum.</span></div></div></section>
 
-    <!-- Horizontal Showcase Section -->
-    <section class="showcase" id="showcase">
-      <h2 class="section-title">Our Innovations</h2>
-      <div class="scroller">
-        <div class="card">
-          <img
-            src="https://images.unsplash.com/photo-1755436612165-56c6bfa5218b?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
-            alt="Custom Web Apps"
-          />
-          <div class="card-body">
-            <h3>Custom Web Apps</h3>
-            <p>Scalable, secure, and future‑proof solutions.</p>
-            <a href="web-applications.html" class="card-link">Discover</a>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://images.unsplash.com/photo-1718220216044-006f43e3a9b1?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
-            alt="Professional Websites"
-          />
-          <div class="card-body">
-            <h3>Professional Websites</h3>
-            <p>Crafted to captivate and convert.</p>
-            <a href="websites.html" class="card-link">Learn More</a>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://images.pexels.com/photos/5940828/pexels-photo-5940828.jpeg?cs=srgb&dl=pexels-kampus-5940828.jpg&fm=jpg"
-            alt="AI Internships"
-          />
-          <div class="card-body">
-            <h3>AI Internships</h3>
-            <p>Immersive programs for tomorrow's innovators.</p>
-            <a href="internships.html" class="card-link">Join</a>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://images.unsplash.com/photo-1768224656445-33d078c250b7?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
-            alt="AI Integration"
-          />
-          <div class="card-body">
-            <h3>AI Integration</h3>
-            <p>Empower your workflows with intelligent automation.</p>
-            <a href="internships.html" class="card-link">Explore</a>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://picsum.photos/id/1027/600/400"
-            alt="SOPNXT"
-          />
-          <div class="card-body">
-            <h3>SOPNXT</h3>
-            <p>Streamlining operations for next‑gen enterprises.</p>
-            <a href="contact.html" class="card-link">Contact</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="capabilities section-shell" id="capabilities"><div class="section-head reveal"><p class="eyebrow">WHAT WE BUILD / 01</p><h2>One partner.<br><em>Every digital layer.</em></h2><p>Strategy, design, engineering, and intelligence—integrated into products that are useful on day one and ready for what comes next.</p></div>
+<div class="capability-layout"><div class="cap-list"><article class="cap-item active" data-card="0"><span>01</span><div><h3>AI & Automation</h3><p>Purpose-built copilots, intelligent workflows, and automation that remove friction from real operations.</p></div><b>↗</b></article><article class="cap-item" data-card="1"><span>02</span><div><h3>Digital Products</h3><p>High-performance web and mobile experiences designed around business outcomes.</p></div><b>↗</b></article><article class="cap-item" data-card="2"><span>03</span><div><h3>Cloud & Cybersecurity</h3><p>Resilient infrastructure, secure architecture, and dependable systems that scale.</p></div><b>↗</b></article><article class="cap-item" data-card="3"><span>04</span><div><h3>Enterprise Systems</h3><p>CRM, data platforms, and connected tools that give teams one source of truth.</p></div><b>↗</b></article></div>
+<div class="card-stage"><article class="swap-card card-ai"><small>01 / INTELLIGENCE</small><div class="mini-orbit"><span></span><span></span><span></span></div><h3>Human-guided<br>machine intelligence.</h3></article><article class="swap-card card-product"><small>02 / EXPERIENCE</small><div class="ui-window"><i></i><i></i><i></i><b></b><b></b></div><h3>Products people<br>want to use.</h3></article><article class="swap-card card-cloud"><small>03 / INFRASTRUCTURE</small><div class="cloud-grid"></div><h3>Secure at every<br>digital edge.</h3></article><article class="swap-card card-data"><small>04 / SYSTEMS</small><div class="data-bars"><i></i><i></i><i></i><i></i><i></i></div><h3>Clarity from<br>complexity.</h3></article></div></div><a class="button button-outline" href="web-applications.html">Explore web applications <span>↗</span></a></section>
 
-    <!-- Philosophy Section -->
-    <section class="philosophy" id="philosophy">
-      <div class="philosophy-container">
-        <h2 class="section-title">Our Philosophy</h2>
-        <p>
-          We strive to build digital products that not only meet today’s needs but
-          anticipate tomorrow’s challenges. By blending design,
-          engineering, and storytelling, we create experiences that resonate and
-          inspire.
-        </p>
-      </div>
-    </section>
+<section class="network-section"><div class="network-copy reveal"><p class="eyebrow">CONNECTED INTELLIGENCE / 02</p><h2>Everything works<br><em>better together.</em></h2><p>As you move forward, ORION connects strategy, software, cloud, data, and security into one continuously improving system.</p></div><div class="network-map"><svg class="network-lines" viewBox="0 0 700 700"><path d="M350 350L112 168M350 350l238-182M350 350 106 262M350 350 90 540M350 350 610 472"/></svg><div class="network-node node-core"><span>BD</span><strong>ORION</strong><small>INTELLIGENCE CORE</small></div><div class="network-node node-1">AI</div><div class="network-node node-2">CLOUD</div><div class="network-node node-3">DATA</div><div class="network-node node-4">UX</div><div class="network-node node-5">SECURE</div></div></section>
 
-    <section class="skills-section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Skills Cloud</h2>
-          <p>Key capabilities that power our work across AI, web, and product.</p>
-          <div class="section-chips">
-            <span>Strategy</span>
-            <span>UX</span>
-            <span>Automation</span>
-            <span>Cloud</span>
-          </div>
-        </div>
-        <div class="skills-cloud">
-          <span>AI Strategy</span>
-          <span>Computer Vision</span>
-          <span>Product Design</span>
-          <span>LLM Workflows</span>
-          <span>Cloud Engineering</span>
-          <span>Data Analytics</span>
-          <span>UX Research</span>
-          <span>Automation</span>
-          <span>DevOps</span>
-          <span>Web Platforms</span>
-          <span>Security</span>
-          <span>Growth Experiments</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Upcoming Events</h2>
-          <p>
-            Public workshops, immersive demos, and live product showcases.
-            Updated by the admin team in real time.
-          </p>
-        </div>
-        <div class="data-grid" id="eventsGrid"></div>
-        <div class="section-cta">
-          <div class="cta-spotlight">
-            <span class="cta-spotlight-core" aria-hidden="true"></span>
-            <a href="contact.html" class="btn secondary-btn">Host an Event</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="testimonials-section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Trusted by Visionary Teams</h2>
-          <p>Short stories from partners building the next wave of digital products.</p>
-        </div>
-        <div class="testimonial-track" id="testimonialTrack">
-          <article class="testimonial-card is-active">
-            <p>
-              "The BOTDEFENSE team shipped a full platform in weeks, not months. Their
-              momentum is contagious."
-            </p>
-            <h4>Product Lead, Fintech Lab</h4>
-          </article>
-          <article class="testimonial-card">
-            <p>
-              "We saw immediate lift in user engagement after the AI workflows went live."
-            </p>
-            <h4>Head of Growth, HealthTech Studio</h4>
-          </article>
-          <article class="testimonial-card">
-            <p>
-              "The experience felt boutique but the execution felt enterprise-grade."
-            </p>
-            <h4>Founder, Retail Innovation Hub</h4>
-          </article>
-        </div>
-        <div class="testimonial-dots" id="testimonialDots"></div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-      <div class="footer-content">
-        <div class="footer-col">
-          <h4>BOTDEFENSE IT&nbsp;SOLUTIONS&nbsp;(OPC)&nbsp;PRIVATE&nbsp;LIMITED</h4>
-          <p>
-            Innovating at the intersection of technology and creativity.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Links</h4>
-          <div class="footer-links">
-            <ul>
-              <li><a href="about.html">About</a></li>
-              <li><a href="web-applications.html">Web Apps</a></li>
-              <li><a href="websites.html">Websites</a></li>
-            </ul>
-            <ul>
-              <li><a href="internships.html">Internships</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>
-            1st Floor, Muthoot Finance Building, 59/14/3/&nbsp;3/1, Service Road,
-            1st Ln, beside VSN Imperial Mall, Krishna Nagar, Vijayawada, Andhra&nbsp;Pradesh&nbsp;520008
-          </p>
-          <p><a href="mailto:info@bdits.in">info@bdits.in</a></p>
-          <p>+91&nbsp;85229&nbsp;43544</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        &copy; <span id="year"></span> BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED. All rights
-        reserved.
-      </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="app.js" defer></script>
-    <script src="cms.js" defer></script>
-    <script>
-      // Update year in footer
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
-</html>
+<section class="journey section-shell"><svg class="journey-line" viewBox="0 0 1200 900" preserveAspectRatio="none"><path d="M118 10C140 190 520 98 484 298S92 444 250 610s616-28 826 262"/></svg><div class="section-head reveal"><p class="eyebrow">HOW WE WORK / 03</p><h2>Rigorous process.<br><em>Remarkably simple.</em></h2></div><div class="journey-steps"><article><span>01</span><small>DISCOVER</small><h3>Find the signal.</h3><p>We clarify the real problem, the users it affects, and the outcome worth pursuing.</p></article><article><span>02</span><small>DESIGN</small><h3>Make it tangible.</h3><p>We shape the system, experience, and visual language before complexity grows.</p></article><article><span>03</span><small>ENGINEER</small><h3>Build for reality.</h3><p>Fast iterations, secure foundations, clear milestones, and production-ready code.</p></article><article><span>04</span><small>EVOLVE</small><h3>Keep moving.</h3><p>Launch is the beginning. We measure, learn, and improve alongside your business.</p></article></div></section>
+<section class="legacy-details section-shell"><div class="section-head reveal"><p class="eyebrow">OUR PHILOSOPHY / 04</p><h2>Human-centered.<br><em>Future-ready.</em></h2><p>We blend design, engineering, and storytelling to create products that meet today's needs while anticipating tomorrow's challenges.</p></div><div class="signal-cards"><article><small>AI STRATEGY</small><h3>Responsible intelligence</h3><p>Computer vision, LLM workflows, ethical data practice, copilots, and automation.</p></article><article><small>EXPERIENCE</small><h3>Interfaces that feel alive</h3><p>UX research, product design, 3D experiences, XR prototypes, and accessible systems.</p></article><article><small>ENGINEERING</small><h3>Built beyond launch</h3><p>Cloud engineering, DevOps, secure web platforms, analytics, and scalable delivery.</p></article></div><div class="testimonial-grid"><blockquote>“The BOTDEFENSE team shipped a full platform in weeks, not months. Their momentum is contagious.”<cite>Product Lead · Fintech Lab</cite></blockquote><blockquote>“We saw immediate lift in user engagement after the AI workflows went live.”<cite>Head of Growth · HealthTech Studio</cite></blockquote><blockquote>“The experience felt boutique but the execution felt enterprise-grade.”<cite>Founder · Retail Innovation Hub</cite></blockquote></div></section>
+<section class="proof section-shell"><div class="proof-statement reveal"><p class="eyebrow">WHY BOTDEFENSE / 05</p><h2>Small enough to care.<br><em>Engineered to deliver.</em></h2></div><div class="metrics"><article><strong>50+</strong><span>AI prototypes delivered</span></article><article><strong>200+</strong><span>Technology interns mentored yearly</span></article><article><strong>24/7</strong><span>Systems built to perform</span></article><article><strong>∞</strong><span>Capacity to keep evolving</span></article></div></section>
+</main>
+<footer class="site-footer"><div class="footer-top"><div><p class="eyebrow">BUILD WHAT'S NEXT</p><h2>Have a complex idea?<br><em>Good.</em></h2></div><a class="orb-link" href="contact.html"><span>LET'S TALK</span><b>↗</b></a></div>
+<div class="footer-directory"><div><strong>BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED</strong><p>Innovating at the intersection of technology and creativity.</p></div><div><strong>CONTACT</strong><p>info@bdits.in · hr@bdits.in<br>+91 85229 43544</p></div><div><strong>HEAD OFFICE</strong><p>1st Floor, Muthoot Finance Building, 59/14/3/3/1, Service Road, 1st Lane, beside VSN Imperial Mall, Krishna Nagar, Vijayawada, Andhra Pradesh 520008</p></div></div><div class="footer-bottom"><a class="brand footer-brand" href="index.html"><img src="static/images/LOGO.png" alt="" width="36" height="36"><span class="brand-copy"><strong>BOTDEFENSE</strong><small>IT SOLUTIONS</small></span></a><p>Vijayawada · Working globally</p><p>© 2026 BOTDEFENSE IT SOLUTIONS (OPC) PRIVATE LIMITED</p></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script><script src="static/js/app.js" defer></script></body></html>
