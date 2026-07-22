@@ -28,7 +28,7 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
     scene.background = new THREE.Color(0xeef2f3);
     scene.fog = new THREE.Fog(0xeef2f3, 10, 20);
     const camera = new THREE.PerspectiveCamera(29, 1, 0.1, 40);
-    camera.position.set(0, 0.25, 10.8);
+    camera.position.set(0, 1.1, 7.2);
 
     const pmrem = new THREE.PMREMGenerator(renderer);
     const environment = new RoomEnvironment();
@@ -173,7 +173,7 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
     scene.add(lab);
 
     const robot = new THREE.Group();
-    robot.position.set(2.25, 0.05, 0);
+    robot.position.set(1.55, 0, 0);
     robot.rotation.y = -0.08;
     scene.add(robot);
 
@@ -201,6 +201,22 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
       [1, 0.62, 0.55],
     );
     chest.rotation.x = -0.04;
+    const leftClavicle = addMesh(
+      torso,
+      capsule(0.075, 0.42, 20),
+      ceramicSoft,
+      [-0.3, 1.27, 0.31],
+      [1, 1, 0.72],
+    );
+    leftClavicle.rotation.z = Math.PI / 2.35;
+    const rightClavicle = addMesh(
+      torso,
+      capsule(0.075, 0.42, 20),
+      ceramicSoft,
+      [0.3, 1.27, 0.31],
+      [1, 1, 0.72],
+    );
+    rightClavicle.rotation.z = -Math.PI / 2.35;
     const core = addMesh(
       torso,
       capsule(0.055, 0.14, 18),
@@ -239,9 +255,26 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
       [0, 0.28, 0.12],
       [1, 1, 0.72],
     );
-    addMesh(torso, sphere(32), ceramicSoft, [0, 0.38, 0.34], [0.3, 0.2, 0.1]);
+    const leftAbdomen = addMesh(
+      torso,
+      capsule(0.09, 0.3, 16),
+      ceramicSoft,
+      [-0.15, 0.38, 0.31],
+      [1, 1, 0.72],
+    );
+    const rightAbdomen = addMesh(
+      torso,
+      capsule(0.09, 0.3, 16),
+      ceramicSoft,
+      [0.15, 0.38, 0.31],
+      [1, 1, 0.72],
+    );
+    leftAbdomen.rotation.z = -0.08;
+    rightAbdomen.rotation.z = 0.08;
     const eyeMaterial = blue.clone();
-    eyeMaterial.emissiveIntensity = 5.5;
+    eyeMaterial.color.setHex(0x39d5ff);
+    eyeMaterial.emissive.setHex(0x159dcc);
+    eyeMaterial.emissiveIntensity = 2.6;
     const leftEye = addMesh(
       head,
       new THREE.BoxGeometry(0.18, 0.04, 0.025, 6, 2, 2),
@@ -266,13 +299,14 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
       const shoulder = new THREE.Group();
       shoulder.position.set(sign * 0.58, 1.16, 0);
       torso.add(shoulder);
-      addMesh(
+      const shoulderCap = addMesh(
         shoulder,
-        sphere(),
+        capsule(0.18, 0.18, 24),
         ceramic,
-        [sign * 0.08, 0, 0],
-        [0.25, 0.23, 0.24],
+        [sign * 0.1, 0, 0],
+        [1, 1, 0.9],
       );
+      shoulderCap.rotation.z = Math.PI / 2;
       addMesh(
         shoulder,
         sphere(),
@@ -501,8 +535,9 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      robot.position.x = width < 760 ? 0.45 : 2.25;
-      robot.scale.setScalar(width < 760 ? 0.9 : 1);
+      camera.position.z = width < 760 ? 8.1 : 7.2;
+      robot.position.x = width < 760 ? 0 : 1.55;
+      robot.scale.setScalar(width < 760 ? 1 : 1.08);
     };
     new ResizeObserver(updateSize).observe(stage);
     updateSize();
@@ -519,6 +554,7 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
       const breath = Math.sin(t * 1.35) * 0.012 * idle;
       const balance = Math.sin(t * 0.42) * 0.025 * idle;
       const headScan = Math.sin(t * 0.27) * 0.025 * idle;
+      const gesture = (Math.sin(t * 0.38) + 1) * 0.5 * idle;
       const targetHeadY = THREE.MathUtils.clamp(
         lookX * 0.31 + headScan,
         -0.31,
@@ -531,6 +567,8 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
         targetHeadX + (state.near ? -0.025 : 0),
         speed * 2.1,
       );
+      neck.rotation.y = lerp(neck.rotation.y, targetHeadY * 0.28, speed * 1.4);
+      neck.rotation.x = lerp(neck.rotation.x, targetHeadX * 0.18, speed * 1.4);
       torso.rotation.y = lerp(
         torso.rotation.y,
         THREE.MathUtils.clamp(lookX * 0.11 + state.scroll * 0.08, -0.14, 0.14),
@@ -546,7 +584,9 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
         balance + state.scroll * 0.018,
         speed * 0.6,
       );
-      robot.position.y = 0.05 + breath * 0.55;
+      robot.position.y = breath * 0.55;
+      chest.scale.y = 0.62 + breath * 0.7;
+      chest.scale.x = 1 + breath * 0.35;
       shoulderRoots[0].rotation.z = lerp(
         shoulderRoots[0].rotation.z,
         -0.02 + balance * 0.7,
@@ -566,6 +606,26 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
         shoulderRoots[1].rotation.y,
         lookX * 0.045,
         speed,
+      );
+      shoulderRoots[0].rotation.x = lerp(
+        shoulderRoots[0].rotation.x,
+        -0.035 + gesture * 0.045 + lookY * 0.025,
+        speed * 0.8,
+      );
+      shoulderRoots[1].rotation.x = lerp(
+        shoulderRoots[1].rotation.x,
+        0.035 - gesture * 0.055 + lookY * 0.025,
+        speed * 0.8,
+      );
+      elbows[0].rotation.x = lerp(
+        elbows[0].rotation.x,
+        0.08 + gesture * 0.12,
+        speed * 0.65,
+      );
+      elbows[1].rotation.x = lerp(
+        elbows[1].rotation.x,
+        0.1 + (1 - gesture) * 0.1 + state.cta * 0.16,
+        speed * 0.7,
       );
       wrists[0].rotation.z = lerp(
         wrists[0].rotation.z,
@@ -606,7 +666,7 @@ if (canvas && stage && "WebGLRenderingContext" in window) {
       );
       camera.position.y = lerp(
         camera.position.y,
-        0.25 + state.scroll * 0.12,
+        1.1 + state.scroll * 0.08,
         speed * 0.35,
       );
       lab.position.x = lerp(lab.position.x, state.scroll * 0.16, speed * 0.3);
