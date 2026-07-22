@@ -56,6 +56,11 @@
           class="orion-stage"
           aria-label="ORION, BOTDEFENSE's interactive AI intelligence system"
         >
+          <canvas
+            id="orion-canvas"
+            aria-hidden="true"
+            role="presentation"
+          ></canvas>
           <img
             class="orion-visual"
             src="static/images/orion-hero.png"
@@ -451,6 +456,15 @@
       src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"
       defer
     ></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="static/js/orion-3d.js"></script>
     <script src="static/js/app.js" defer></script>
   </body>
 </html>

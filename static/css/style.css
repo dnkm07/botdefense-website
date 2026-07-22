@@ -1186,8 +1186,29 @@ h2 em {
   transform-origin: 72% 42%;
   animation: orion-breathe 5s ease-in-out infinite;
 }
+#orion-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s;
+}
+.orion-stage.webgl-ready #orion-canvas {
+  opacity: 1;
+}
+.orion-stage.webgl-ready .orion-visual {
+  opacity: 0;
+}
+.orion-stage.webgl-ready > .orion-eyes,
+.orion-stage.webgl-ready > .orion-core {
+  display: none;
+}
 .orion-stage .orion-visual {
   transform: none;
+  transition: opacity 0.5s;
 }
 .orion-eyes {
   position: absolute;

@@ -81,7 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const y = event.clientY / window.innerHeight - 0.5;
         root.style.setProperty("--eye-x", `${x * 3}px`);
         root.style.setProperty("--eye-y", `${y * 2}px`);
-        if (stage) stage.style.translate = `${x * -7}px ${y * -4}px`;
+        if (stage && !stage.classList.contains("webgl-ready"))
+          stage.style.translate = `${x * -7}px ${y * -4}px`;
       });
     },
     { passive: true },
@@ -154,21 +155,19 @@ document.addEventListener("DOMContentLoaded", () => {
     duration: 1.25,
     ease: "power3.out",
   });
-  gsap.utils
-    .toArray(".reveal")
-    .forEach((element) =>
-      gsap.fromTo(
-        element,
-        { y: 36, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.85,
-          ease: "power3.out",
-          scrollTrigger: { trigger: element, start: "top 86%", once: true },
-        },
-      ),
-    );
+  gsap.utils.toArray(".reveal").forEach((element) =>
+    gsap.fromTo(
+      element,
+      { y: 36, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.85,
+        ease: "power3.out",
+        scrollTrigger: { trigger: element, start: "top 86%", once: true },
+      },
+    ),
+  );
 
   const flow = document.querySelector(".ticker-flow");
   if (flow && window.innerWidth > 560)
